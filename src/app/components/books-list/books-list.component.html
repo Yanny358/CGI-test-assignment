@@ -1,29 +1,25 @@
-<div class="container mat-elevation-z4">
-  <mat-card>
-    <mat-card-title>Books</mat-card-title>
-    <mat-card-content>
-      <mat-nav-list *ngIf="(books$ | async) as books">
-        <a mat-list-item *ngFor="let book of books.content" [routerLink]="['/books', book.id]">
-          {{book.title}}
-        </a>
-      </mat-nav-list>
-    </mat-card-content>
-  </mat-card>
+<div class="container">
+  <div class="row" *ngIf="(books$ | async) as books">
+    <div class="card" *ngFor="let book of books.content"  style="width: 18rem;">
+      <img src="../../../favicon.ico" [routerLink]="['/books', book.id]" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{book.author}}</h5>
+        <p class="card-text">{{book.title}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{book.genre}}</li>
+        <li class="list-group-item">{{book.year}}</li>
+        <li class="list-group-item">{{book.status}}</li>
+      </ul>
+      <div class="card-body">
+        <a [routerLink]="['/books', book.id]" class="card-link">Book details</a>
+      </div>
+    </div>
 </div>
+        
+<!--
+  Where i took the styles for card views
+https://getbootstrap.com/docs/5.0/layout/grid/
+https://getbootstrap.com/docs/5.0/components/card/
+-->
 
-<div class="card" style="width: 18rem;">
-  <img src="../../../favicon.ico" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
