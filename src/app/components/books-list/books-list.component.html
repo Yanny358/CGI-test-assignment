@@ -3,9 +3,15 @@
     <p>Books, a lot of books, 1337 to be precise</p>
   </blockquote>
 </figure>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button type="button" class="btn btn-outline-primary me-md-2" (click)="prevPage()">Prev page</button>
+      <button type="button" class="btn btn-outline-primary" (click)="nextPage()">Next page</button>
+</div>
+
 <div class="container">
   <div class="row" *ngIf="(books$ | async) as books">
-    <div class="card" *ngFor="let book of books.content"  style="width: 18rem;">
+    <div class="card" *ngFor="let book of books.content" style="width: 18rem;">
       <img src="../../../favicon.ico" [routerLink]="['/books', book.id]" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{book.author}}</h5>
@@ -20,11 +26,11 @@
         <a [routerLink]="['/books', book.id]" class="card-link">Book details</a>
       </div>
     </div>
+  </div>
 </div>
-        
+
 <!--
   Where i took the styles for card views
 https://getbootstrap.com/docs/5.0/layout/grid/
 https://getbootstrap.com/docs/5.0/components/card/
 -->
-
