@@ -39,6 +39,6 @@ export class BooksListComponent implements OnInit {
     this.currentPage--;
     if(this.currentPage < this.min_page) this.currentPage = this.min_page;
     this.books$ = this.bookService.getBooks({pageIndex: this.currentPage, pageSize: 15});
-}
+  }
   
 }
