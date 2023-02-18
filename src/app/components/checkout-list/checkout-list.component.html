@@ -1,12 +1,17 @@
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button type="button" class="btn btn-outline-primary me-md-2" (click)="prevPage()">Prev page</button>
+    <button type="button" class="btn btn-outline-primary" (click)="nextPage()">Next page</button>
+</div>
+
 <div class="container" *ngIf="(checkouts$ | async) as checkouts">
-    <div class="card" *ngFor="let checkout of checkouts.content" >
-    <div class="card-header">
-      Featured
+    <div class="card" *ngFor="let checkout of checkouts.content">
+        <div class="card-header">
+            Book: {{(checkout.borrowedBook.title)}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Borrower: {{checkout.borrowerFirstName}} {{checkout.borrowerLastName}}</h5>
+            <p class="card-text"></p>
+            <a [routerLink]="['/checkouts', checkout.id]" class="btn btn-primary">Checkout details</a>
+        </div>
     </div>
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
 </div>
