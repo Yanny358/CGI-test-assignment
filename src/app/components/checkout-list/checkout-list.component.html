@@ -1,11 +1,11 @@
 <figure class="text-center">
-    <h2>Welcome to checkout</h2>
+    <h2>Welcome to check out page</h2>
     
   </figure>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button type="button" class="btn btn-outline-primary me-md-2" (click)="prevPage()">Prev page</button>
-    <button type="button" class="btn btn-outline-primary" (click)="nextPage()">Next page</button>
+    <button type="button" class="btn btn-outline-primary me-md-4" (click)="prevPage()">Prev page</button>
+    <button type="button" class="btn btn-outline-primary me-md-4" (click)="nextPage()">Next page</button>
 </div>
 
 <div class="container" *ngIf="(checkouts$ | async) as checkouts">

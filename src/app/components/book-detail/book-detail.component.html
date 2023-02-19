@@ -1,1 +1,19 @@
-<pre>{{book$ | async | json}}</pre>
+<div class="card text-center" *ngIf="(book$ | async) as book">
+    <div class="card-header">
+      Book: {{book.title}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Author: {{book.author}}</h5>
+      <p class="card-text">Genre: {{book.genre}}</p>
+      <p class="card-text">Year: {{book.year}}</p>
+      <p class="card-text">Was added: {{book.added}}</p>
+      <p class="card-text">It was checkedout: {{book.checkOutCount}} times</p>
+      <p class="card-text">Status: {{book.status}}</p>
+      <p class="card-text">Book due date: {{book.dueDate}}</p>
+      <p class="card-text">Comments: {{book.comment}}</p>
+      <a [routerLink]="['/books']" class="btn btn-primary">Go back</a>
+    </div>
+    <div class="card-footer text-muted">
+        Today is: {{currentDate | date:'yyyy-MM-dd'}}
+    </div>
+  </div>

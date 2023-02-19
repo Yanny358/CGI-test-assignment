@@ -13,6 +13,7 @@ import { map, switchMap } from 'rxjs/operators';
 export class CheckoutDetailComponent implements OnInit {
   checkout$: Observable<Checkout | Error>;
 
+  currentDate = new Date();
 
   constructor(
     private route: ActivatedRoute,

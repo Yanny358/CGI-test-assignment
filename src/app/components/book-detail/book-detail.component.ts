@@ -13,6 +13,7 @@ import { map, switchMap } from 'rxjs/operators';
 export class BookDetailComponent implements OnInit {
   book$: Observable<Book | Error>;
 
+  currentDate = new Date();
 
   constructor(
     private route: ActivatedRoute,

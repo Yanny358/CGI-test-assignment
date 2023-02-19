@@ -1,1 +1,15 @@
-<pre>{{checkout$ | async | json}}</pre>
+<div class="card text-center" *ngIf="(checkout$ | async) as checkout">
+    <div class="card-header">
+      Book: {{checkout.borrowedBook.title}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Borrower name: {{checkout.borrowerFirstName}} {{checkout.borrowerLastName}}</h5>
+      <p class="card-text">Check out date: {{checkout.checkedOutDate}}</p>
+      <p class="card-text">Due date: {{checkout.dueDate}}</p>
+      <p class="card-text">Returned: {{checkout.returnedDate}}</p>
+      <a [routerLink]="['/checkouts']" class="btn btn-primary">Go back</a>
+    </div>
+    <div class="card-footer text-muted">
+        Today is: {{currentDate | date:'yyyy-MM-dd'}}
+    </div>
+  </div>
