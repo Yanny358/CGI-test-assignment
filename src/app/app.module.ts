@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,6 +10,7 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { HttpClientModule } from '@angular/common/http';
 import { CheckoutListComponent } from './components/checkout-list/checkout-list.component';
 import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,17 @@ import { CheckoutDetailComponent } from './components/checkout-detail/checkout-d
     BooksListComponent,
     BookDetailComponent,
     CheckoutListComponent,
-    CheckoutDetailComponent
+    CheckoutDetailComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

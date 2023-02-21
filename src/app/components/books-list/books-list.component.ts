@@ -15,6 +15,7 @@ export class BooksListComponent implements OnInit {
   public currentPage = 0;
   public min_page = 0;
   public max_page = 90;
+  searchText: string = '';
 
   constructor(
     private bookService: BookService,
@@ -31,6 +32,7 @@ export class BooksListComponent implements OnInit {
     // one button click
       this.currentPage++;
       if (this.currentPage > this.max_page) this.currentPage = this.max_page;
+      console.log(this.currentPage);
       this.books$ = this.bookService.getBooks({pageIndex: this.currentPage, pageSize: 15});
   }
 
@@ -38,7 +40,12 @@ export class BooksListComponent implements OnInit {
     // same here but for min page
     this.currentPage--;
     if(this.currentPage < this.min_page) this.currentPage = this.min_page;
+    console.log(this.currentPage);
     this.books$ = this.bookService.getBooks({pageIndex: this.currentPage, pageSize: 15});
+  }
+
+  onSearchTextEntered(searchValue: string){
+      this.searchText = searchValue;
   }
   
 }

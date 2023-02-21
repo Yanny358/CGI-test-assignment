@@ -2,7 +2,9 @@
   <blockquote class="blockquote">
     <p>Welcome to CGI Library, we have 1337 books!</p>
   </blockquote>
+  <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 </figure>
+
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
       <button type="button" class="btn btn-outline-primary me-md-4" (click)="prevPage()">Prev page</button>
@@ -12,6 +14,7 @@
 <div class="container">
   <div class="row" *ngIf="(books$ | async) as books">
     <div class="card" *ngFor="let book of books.content" style="width: 20rem;">
+      <div *ngIf="searchText === '' || book.title.toLowerCase().includes(searchText) ">
       <img src="../../../favicon.ico" [routerLink]="['/books', book.id]" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{book.author}}</h5>
@@ -25,6 +28,7 @@
       <div class="card-body">
         <a [routerLink]="['/books', book.id]" class="card-link">Book details</a>
       </div>
+    </div>
     </div>
   </div>
 </div>
