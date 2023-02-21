@@ -14,7 +14,7 @@ export class BooksListComponent implements OnInit {
   books$: Observable<Page<Book> | Error>;
   public currentPage = 0;
   public min_page = 0;
-  public max_page = 90;
+  public max_page = 67; // 1000 books
   searchText: string = '';
 
   constructor(
