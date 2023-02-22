@@ -7,28 +7,28 @@
 
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button type="button" class="btn btn-outline-primary me-md-4" (click)="prevPage()">Prev page</button>
-      <button type="button" class="btn btn-outline-primary me-md-4" (click)="nextPage()">Next page</button>
+  <button type="button" class="btn btn-outline-primary me-md-4" (click)="prevPage()">Prev page</button>
+  <button type="button" class="btn btn-outline-primary me-md-4" (click)="nextPage()">Next page</button>
 </div>
 
 <div class="container">
   <div class="row" *ngIf="(books$ | async) as books">
     <div class="card" *ngFor="let book of books.content" style="width: 10rem;">
       <div *ngIf="searchText === '' || book.title.toLowerCase().includes(searchText) ">
-      <img src="../../../favicon.ico" [routerLink]="['/books', book.id]" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{book.author}}</h5>
-        <p class="card-text">{{book.title}}</p>
+        <img src="../../../favicon.ico" [routerLink]="['/books', book.id]" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{book.author}}</h5>
+          <p class="card-text">{{book.title}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{book.genre}}</li>
+          <li class="list-group-item">{{book.year}}</li>
+          <li class="list-group-item">{{book.status}}</li>
+        </ul>
+        <div class="card-body">
+          <a [routerLink]="['/books', book.id]" class="card-link">Book details</a>
+        </div>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{book.genre}}</li>
-        <li class="list-group-item">{{book.year}}</li>
-        <li class="list-group-item">{{book.status}}</li>
-      </ul>
-      <div class="card-body">
-        <a [routerLink]="['/books', book.id]" class="card-link">Book details</a>
-      </div>
-    </div>
     </div>
   </div>
 </div>
