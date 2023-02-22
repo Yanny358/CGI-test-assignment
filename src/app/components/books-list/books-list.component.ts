@@ -14,7 +14,7 @@ export class BooksListComponent implements OnInit {
   books$: Observable<Page<Book> | Error>;
   public currentPage = 0;
   public min_page = 0;
-  public max_page = 67; // 1000 books
+  public max_page = 12; // 1000 books 90 books per page
   searchText: string = '';
 
   constructor(
@@ -24,7 +24,7 @@ export class BooksListComponent implements OnInit {
 
   ngOnInit(): void {
     // TODO this observable should emit books taking into consideration pagination, sorting and filtering options.
-    this.books$ = this.bookService.getBooks({pageIndex: 0, pageSize: 15});
+    this.books$ = this.bookService.getBooks({pageIndex: 0, pageSize: 90});
   };
   
   public nextPage(): void {
@@ -33,7 +33,7 @@ export class BooksListComponent implements OnInit {
       this.currentPage++;
       if (this.currentPage > this.max_page) this.currentPage = this.max_page;
       console.log(this.currentPage);
-      this.books$ = this.bookService.getBooks({pageIndex: this.currentPage, pageSize: 15});
+      this.books$ = this.bookService.getBooks({pageIndex: this.currentPage, pageSize: 90});
   }
 
   public prevPage(): void {
@@ -41,7 +41,7 @@ export class BooksListComponent implements OnInit {
     this.currentPage--;
     if(this.currentPage < this.min_page) this.currentPage = this.min_page;
     console.log(this.currentPage);
-    this.books$ = this.bookService.getBooks({pageIndex: this.currentPage, pageSize: 15});
+    this.books$ = this.bookService.getBooks({pageIndex: this.currentPage, pageSize: 90});
   }
 
   onSearchTextEntered(searchValue: string){

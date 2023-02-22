@@ -13,7 +13,7 @@
 
 <div class="container">
   <div class="row" *ngIf="(books$ | async) as books">
-    <div class="card" *ngFor="let book of books.content" style="width: 20rem;">
+    <div class="card" *ngFor="let book of books.content" style="width: 10rem;">
       <div *ngIf="searchText === '' || book.title.toLowerCase().includes(searchText) ">
       <img src="../../../favicon.ico" [routerLink]="['/books', book.id]" class="card-img-top" alt="...">
       <div class="card-body">
