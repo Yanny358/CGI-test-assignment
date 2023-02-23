@@ -4,6 +4,9 @@ import { Book } from '../../models/book';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './confirm-dialog.component';
+
 
 @Component({
   selector: 'app-book-detail',
@@ -18,6 +21,7 @@ export class BookDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
+    public dialog: MatDialog
   ) {
   }
 
@@ -25,6 +29,17 @@ export class BookDetailComponent implements OnInit {
     this.book$ = this.route.params
       .pipe(map(params => params.id))
       .pipe(switchMap(id => this.bookService.getBook(id)))
+  }
+
+  openDialog(){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      id: 1  // need somehow pass book id?
+    };
+    this.dialog.open(ConfirmDialogComponent, dialogConfig);
   }
 
 }

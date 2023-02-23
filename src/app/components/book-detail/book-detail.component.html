@@ -12,6 +12,7 @@
       <p class="card-text">Book due date: {{book.dueDate}}</p>
       <p class="card-text">Comments: {{book.comment}}</p>
       <a [routerLink]="['/books']" class="btn btn-primary">Go back</a>
+      <button (click)="openDialog()" type="button" class="btn btn-danger">Delete</button>
     </div>
     <div class="card-footer text-muted">
         Today is: {{currentDate | date:'yyyy-MM-dd'}}

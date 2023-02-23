@@ -1,0 +1,15 @@
+<div class="dialog-header accent-background">
+    <span class="dialog-header-title">Delete this book?</span>
+  </div>
+  <div class="dialog-content">
+    <p>It will be deleted from library</p>
+  </div>
+  <div class="dialog-footer" >
+    <button (click)="cancelDelete()" class="standard-button dialog-button" mat-raised-button mat-dialog-close>Cancel</button>
+    <button (click)="deleteBook()" mat-raised-button color="primary" mat-dialog-close>Delete</button>
+  </div>
+
+  <!--
+    https://www.developer.com/languages/javascript/angular-11-matdialog-basics/
+    https://blog.angular-university.io/angular-material-dialog/
+  -->

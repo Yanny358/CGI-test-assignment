@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CheckoutListComponent } from './components/checkout-list/checkout-list.component';
 import { CheckoutDetailComponent } from './components/checkout-detail/checkout-detail.component';
 import { SearchComponent } from './components/search/search.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SearchComponent } from './components/search/search.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
