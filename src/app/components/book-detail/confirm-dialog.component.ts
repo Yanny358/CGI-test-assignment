@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { BookService } from "src/app/services/book.service";
 
@@ -19,7 +19,7 @@ import { BookService } from "src/app/services/book.service";
       }
   
     public deleteBook(): void {
-      this.bookService.deleteBook(this.data);
+      this.bookService.deleteBook(this.data.bookId);
       this.dialogRef.close();
     }
     public cancelDelete(): void {

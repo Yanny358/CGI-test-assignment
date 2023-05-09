@@ -37,7 +37,7 @@ export class BookDetailComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = {
-      id: 1  // need somehow pass book id?
+      id: ""  // need somehow pass book id?
     };
     this.dialog.open(ConfirmDialogComponent, dialogConfig);
   }
